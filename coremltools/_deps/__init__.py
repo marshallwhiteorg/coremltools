@@ -123,3 +123,10 @@ try:
 except:
     HAS_KERAS_TF = False
     HAS_KERAS2_TF = False
+
+# ---------------------------------------------------------------------------------------
+HAS_STATSMODELS = True
+try:
+    import statsmodels
+except:
+    HAS_STATSMODELS = False
