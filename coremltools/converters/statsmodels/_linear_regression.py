@@ -9,11 +9,11 @@ from ..._deps import HAS_STATSMODELS as _HAS_STATSMODELS
 from ...models import MLModel as _MLModel
 
 if _HAS_STATSMODELS:
-	from . import _statsmodels_util
-	import statsmodels
-	from statsmodels.regression.linear_model import OLS
-	model_type = 'regressor'
-	statsmodels_class = statsmodels.regression.linear_model.RegressionResults
+    from . import _statsmodels_util
+    import statsmodels
+    from statsmodels.regression.linear_model import OLS
+    model_type = 'regressor'
+    statsmodels_class = statsmodels.regression.linear_model.OLS
 
 def convert(model, features, target):
     """Convert a linear regression model to the protobuf spec.

@@ -2,7 +2,9 @@
 # September 30, 2017
 #
 # Use of this source code is governed by a BSD-3-clause license that can be
-# found in the LICENSE.txt file or at https://opensource.org/licenses/BSD-3-Clause
+
+# found in the LICENSE.txt file or at
+# https://opensource.org/licenses/BSD-3-Clause
 
 from collections import Iterable
 
@@ -41,7 +43,8 @@ def convert(model, feature_names, target):
         Protobuf representation of the model
     """
     if not (_HAS_STATSMODELS):
-        raise RuntimeError('statsmodels not found. statsmodels conversion API is disabled.')
+        raise RuntimeError(
+            'statsmodels not found. statsmodels conversion API is disabled.')
 
     return _MLModel(_convert(model, feature_names, target))
 
@@ -50,7 +53,9 @@ def _convert(model, feature_names, target):
     spec = _Model_pb2.Model()
     spec.specificationVersion = SPECIFICATION_VERSION
 
-    set_classifier_interface_params(spec, feature_names, target, 'glmClassifier', output_features=target)
+    set_classifier_interface_params(
+        spec, feature_names, target, 'glmClassifier', output_features=target)
+
 
     glmClassifier = spec.glmClassifier
 
