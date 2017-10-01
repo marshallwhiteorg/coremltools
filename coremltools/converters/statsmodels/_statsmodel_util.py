@@ -4,7 +4,7 @@ def check_fitted():
     that the model will be fitted before it is given to convert)
     """
     pass
-    
+
 
 def check_expected_type(model, expected_type):
     """Check if a model is of the right type. Raise error if not.
@@ -18,5 +18,5 @@ def check_expected_type(model, expected_type):
         Expected type of the scikit-learn.
     """
     if (model.__class__.__name__ != expected_type.__name__):
-        raise TypeError("Expected model of type '%s' (got %s)" % \
-                (expected_type.__name__, model.__class__.__name__))
+        raise TypeError("Expected model of type '%s' (got %s)" %
+                        (expected_type.__name__, model.__class__.__name__))
