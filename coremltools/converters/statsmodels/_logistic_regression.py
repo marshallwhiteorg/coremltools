@@ -2,6 +2,7 @@
 # September 30, 2017
 #
 # Use of this source code is governed by a BSD-3-clause license that can be
+
 # found in the LICENSE.txt file or at
 # https://opensource.org/licenses/BSD-3-Clause
 
@@ -54,6 +55,7 @@ def _convert(model, feature_names, target):
 
     set_classifier_interface_params(
         spec, feature_names, target, 'glmClassifier', output_features=target)
+
 
     glmClassifier = spec.glmClassifier
 
