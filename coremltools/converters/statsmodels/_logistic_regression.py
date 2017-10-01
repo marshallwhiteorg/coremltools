@@ -53,14 +53,14 @@ def _convert(model, feature_names, target):
     spec.specificationVersion = SPECIFICATION_VERSION
 
     set_classifier_interface_params(
-        spec, feature_names, target, 'glmClassifier', output_features=target)
+        spec, feature_names, target, 'glmClassifier')
 
 
     glmClassifier = spec.glmClassifier
 
     glmClassifier.postEvaluationTransform = glmClassifier.Logit
 
-    for cur_in_row in model.params:
+    for cur_in_row in [model.params]:
         cur_out_row = glmClassifier.weights.add()
         for val in cur_in_row:
             cur_out_row.value.append(val)
