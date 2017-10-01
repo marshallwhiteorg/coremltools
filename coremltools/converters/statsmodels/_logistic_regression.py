@@ -56,4 +56,9 @@ def _convert(model, feature_names, target):
 
     glmClassifier.postEvaluationTransform = glmClassifier.Logit
 
+    for cur_in_row in model.params:
+        cur_out_row = glmClassifier.weights.add()
+        for val in cur_in_row:
+            cur_out_row.value.append(val)
+
     return spec
