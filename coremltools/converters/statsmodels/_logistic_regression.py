@@ -58,6 +58,7 @@ def _convert(model, feature_names, target):
 
     glmClassifier = spec.glmClassifier
 
+    glmClassifier.offset.append(0)
     glmClassifier.postEvaluationTransform = glmClassifier.Logit
 
     for val in model.params:
