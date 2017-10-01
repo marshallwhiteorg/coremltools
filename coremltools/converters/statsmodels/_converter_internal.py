@@ -2,8 +2,8 @@
 The primary file for converting statsmodels models.
 """
 
-from . import _linear_regession
-from . import _logistic_regession
+from . import _linear_regression
+from . import _logistic_regression
 
 from ..._deps import HAS_STATSMODELS as _HAS_STATSMODELS
 
@@ -18,8 +18,8 @@ from ...models.pipeline import Pipeline, PipelineRegressor, PipelineClassifier
 
 # simple list of supported statsmodels model types
 _converter_module_list = [
-    _linear_regession,
-    _logistic_regession
+    _linear_regression,
+    _logistic_regression
 ]
 
 
@@ -32,7 +32,7 @@ def is_statsmodels_model(sm_obj):
     if not _HAS_STATSMODELS:
         raise RuntimeError(
             'statsmodels not found. statsmodels conversion API is disabled.')
-    return (sm_obj.__class__ in converter_lookup)
+    return (sm_obj.__class__ in _converter_lookup)
 
 
 def _get_converter_module(sm_obj):
