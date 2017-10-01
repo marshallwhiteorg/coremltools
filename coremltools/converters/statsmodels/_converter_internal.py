@@ -51,7 +51,7 @@ def _get_converter_module(sm_obj):
 
 
 def _convert_statsmodels_model(input_sm_obj, input_features=None,
-                               output_feature_name=None):
+                               output_feature_name=None, class_labels = None):
     """
     Converts a generic statsmodels regressor into an coreML specification.
     Delegates to an factory function which provides the proper convert method to use.

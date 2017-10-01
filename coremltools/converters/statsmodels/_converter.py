@@ -10,5 +10,6 @@ def convert(sm_obj, input_features=None,
 
     spec = _convert_statsmodels_model(
             sm_obj, input_features, output_feature_names, class_labels = None)
-
-    return MLModel(spec)
+    # print spec.__class__
+    # return MLModel(spec)
+    return spec

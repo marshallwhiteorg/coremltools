@@ -12,10 +12,9 @@ from ..._deps import HAS_STATSMODELS as _HAS_STATSMODELS
 from ...models import MLModel as _MLModel
 
 if _HAS_STATSMODELS:
-    from statsmodels.discrete.discrete_model import LogitResults
-    from . import _sklearn_util
+    from statsmodels.discrete.discrete_model import LogitResults, BinaryResultsWrapper
 
-    statsmodels_class = LogitResults
+    statsmodels_class = BinaryResultsWrapper
 
 from ... import SPECIFICATION_VERSION
 from ...models._interface_management import set_classifier_interface_params

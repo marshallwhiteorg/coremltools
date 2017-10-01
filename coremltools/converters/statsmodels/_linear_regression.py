@@ -11,10 +11,10 @@ from ...models import MLModel as _MLModel
 if _HAS_STATSMODELS:
     from . import _statsmodels_util
     import statsmodels
-    from statsmodels.regression.linear_model import OLS, RegressionResults
+    from statsmodels.regression.linear_model import OLS, RegressionResultsWrapper, RegressionResults
 
     model_type = 'regressor'
-    statsmodels_class = statsmodels.regression.linear_model.OLS
+    statsmodels_class = RegressionResultsWrapper
 
 def convert(model, features, target):
     """Convert a linear regression model to the protobuf spec.
@@ -38,7 +38,7 @@ def convert(model, features, target):
         raise RuntimeError('statsmodels not found. statsmodels conversion API is disabled.')
 
     # check the statsmodels model
-    _statsmodels_util.check_expected_type(model, RegressionResults)
+    _statsmodels_util.check_expected_type(model, RegressionResultsWrapper)
     _statsmodels_util.check_fitted()
 
     return _MLModel(_convert(model, features, target))
@@ -51,13 +51,13 @@ def _convert(model, features, target):
 
     # Add parameters for the linear regression
     lr = spec.glmRegressor
-
+    """
     if(isinstance(model.intercept_, _np.ndarray)):
         assert(len(model.intercept__) == 1)
         lr.offset.append(model.intercept_[0])
     else:
         lr.offset.append(model.intercept_)
-
+    """
     weights = lr.weights.add()
     for i in model.params:
         weights.value.append(i)
