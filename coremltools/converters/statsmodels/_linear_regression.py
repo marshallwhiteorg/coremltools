@@ -51,13 +51,10 @@ def _convert(model, features, target):
 
     # Add parameters for the linear regression
     lr = spec.glmRegressor
-    """
-    if(isinstance(model.intercept_, _np.ndarray)):
-        assert(len(model.intercept__) == 1)
-        lr.offset.append(model.intercept_[0])
-    else:
-        lr.offset.append(model.intercept_)
-    """
+
+
+    lr.offset.append(0) # 0 for now, not sure where to get intercept
+
     weights = lr.weights.add()
     for i in model.params:
         weights.value.append(i)
