@@ -1,7 +1,7 @@
 # coremltools
 ### Statsmodels converter (coremltools fork)
 
-Authors: [Raghavprasanna Rajagopalan](www.github.com/raghavp96), sakurasunris3,
+Authors: [Raghavprasanna Rajagopalan](www.github.com/raghavp96), [sakurasunris3](www.github.com/sakurasunris3),
 and [Ethan March](www.github.com/ethmarch).
 
 This is an extension of Apple's coremltools Python package which adds support for conversion to Core ML models
